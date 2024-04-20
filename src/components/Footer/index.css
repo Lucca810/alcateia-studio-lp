@@ -1,0 +1,19 @@
+.lp-footer {
+    height: 80px;
+    width: calc(100% - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    color: #fff;
+    background-color: #160A1E;
+}
+
+.lp-footer--social-media{
+    height: 80%;
+}
+
+.lp-footer--social-media img{
+    height: 100%;
+    margin-left: 30px;
+}

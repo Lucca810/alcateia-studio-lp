@@ -1,0 +1,24 @@
+.rounded-block{
+    width: 30%;
+    margin-bottom: 30px;
+    min-width: 300px;
+}
+
+.rounded-block .rounded-block--image{
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+}
+
+.rounded-block h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+.rounded-block h3{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}

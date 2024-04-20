@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "JetBrainsMono";
+  src: local("JetBrains"),
+   url("./fonts/JetBrains/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+ }
+
+body {
+  margin: 0;
+  font-family: 'JetBrainsMono';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

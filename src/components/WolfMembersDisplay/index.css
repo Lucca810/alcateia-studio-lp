@@ -1,0 +1,60 @@
+.wolf-member {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.wolf-member img,
+.wolf-member-mobile img {
+    height: 100%;
+    background-color: transparent;
+}
+
+.wolf-member-area {
+    display: flex;
+    height: 150px;
+    background-color: #000;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.wolf-member-mobile {
+    z-index: 10;
+    height: 100%;  
+    padding-top: 20px;  
+}
+
+.wolf-member-description {
+    color: #fff;
+    width: 600px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    padding-left: 10px;
+}
+
+.wolf-member + .wolf-member-description {
+    display: block;
+}
+
+.wolf-member:hover + .wolf-member-description {
+    display: block;
+}
+
+.wolf-member-description--social-media-area{
+    display: flex;
+}
+
+.wolf-member-description--social-media-area img{
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+}
+
+.wolf-member-description-mobile{
+    background-color: #000;
+    padding: 20px 60px;
+    overflow-y: scroll;
+}
