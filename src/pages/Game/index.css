@@ -35,9 +35,10 @@
     border: 3px solid #fff;
 }
 
+
 .about-game-section,
 .caractaristics-game-section {
-    height: calc(60vh + 40px);
+    height: calc(80vh + 40px);
     display: flex;
 }
 
@@ -51,7 +52,7 @@
     padding: 20px 60px;
     color: black;
     background-color: #fff;
-    height: 60vh;
+    height: 80vh;
 }
 
 .caractaristics-game-section{
@@ -61,13 +62,27 @@
 .about-game-section--shape {
     width: 0;
     height: 0;
-    border-top: calc(60vh + 40px) solid #fff;
+    border-top: calc(80vh + 50px) solid #fff;
     border-right: 200px solid transparent;
 }
 
 .caractaristics-game-section--shape {
     width: 0;
     height: 0;
-    border-bottom: calc(60vh + 40px) solid #fff;
+    border-bottom: calc(80vh + 40px) solid #fff;
     border-left: 200px solid transparent;
+}
+
+@media only screen and (max-width: 911px) {
+    .about-game-section--shape, .caractaristics-game-section--shape{
+        display: none;
+    }
+
+    .about-game-section--text-area, .caractaristics-game-section--text-area{
+        width: 100%;
+    }
+
+    .caractaristics-game-section, .about-game-section{
+        height: 100vh;
+    }
 }

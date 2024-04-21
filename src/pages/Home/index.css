@@ -15,7 +15,7 @@
 .servicos-section,
 .portifolio-section,
 .contato-section {
-    min-height: 100vh;
+    min-height: 110vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

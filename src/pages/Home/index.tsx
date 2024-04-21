@@ -3,7 +3,14 @@ import './index.css'
 import { cases, services } from '../../variables'
 import { WolfMembersDisplay } from '../../components/WolfMembersDisplay'
 
-export function Home() {
+interface IHome{
+    size: number[]
+    mouseCordinates: { x: number, y: number }
+    scroll: number
+}
+
+export function Home(props: IHome) {
+    const {size, mouseCordinates, scroll} = props
 
     return (
         <div className='main'>
@@ -15,7 +22,7 @@ export function Home() {
                     </p>
                 </div>
             </section>
-            <WolfMembersDisplay />
+            <WolfMembersDisplay size={size} mouseCordinates={mouseCordinates} />
             <section id="servicos" className='servicos-section' style={{ backgroundImage: "url('/Banner2.jpg')" }}>
                 <div className='servicos-section--text-area'>
                     <h1>Nossos Serviços</h1>

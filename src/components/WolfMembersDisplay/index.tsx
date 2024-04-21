@@ -4,32 +4,17 @@ import './index.css'
 import { wolfMembers } from "../../variables";
 import { IWolfMember } from "../../interfaces/interfaces";
 
-export function WolfMembersDisplay() {
-    const [size, setSize] = useState([0, 0]);
+interface IWolfMembersDisplay{
+    size: number[]
+    mouseCordinates: { x: number, y: number }
+}
+
+export function WolfMembersDisplay(props: IWolfMembersDisplay) {
     const [selectedWolf, setSelectedWolf] = useState<IWolfMember>()
-    const [mouseCordinates, setMouseCordinates] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
     const [lockedCordinates, setLockedCordinates] = useState<{ x: number, y: number }>()
     const cursor = useRef()
 
-    useLayoutEffect(() => {
-        //Atualizar tamnho da página
-        function updateSize() {
-            setSize([window.innerWidth, window.innerHeight]);
-        }
-        window.addEventListener('resize', updateSize);
-        updateSize();
-
-        //Atulizar posição do mouse
-        const updateMousePosition = (ev: any) => {
-            setMouseCordinates({ x: ev.clientX, y: ev.clientY });
-        };
-        window.addEventListener('mousemove', updateMousePosition);
-
-        return () => {
-            window.removeEventListener('resize', updateSize);
-            window.removeEventListener('mousemove', updateMousePosition);
-        };
-    }, []);
+    const {size, mouseCordinates} = props
 
     if (size[0] > 911) {
         return (

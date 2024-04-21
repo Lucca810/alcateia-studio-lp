@@ -20,6 +20,7 @@ export interface IRoundedBlock{
     subheading?: string
     imgUrl: string
     goTo?: string
+    styles?: React.CSSProperties
 }
 
 export interface IWolfMember{

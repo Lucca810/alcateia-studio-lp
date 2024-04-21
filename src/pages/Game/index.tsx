@@ -2,10 +2,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { cases } from '../../variables'
 import './index.css'
 
-export function Game() {
+interface IGame {
+    scroll: number
+}
+
+export function Game(props: IGame) {
     const game = useParams<{ gameName: string }>()
     const navigate = useNavigate();
     const caseSelected = cases.filter((c) => { if (c.game === game.gameName) return c })[0]
+
+    const { scroll } = props
 
     return (
         <div className='main'>
@@ -23,7 +29,7 @@ export function Game() {
                                 {caseSelected.about}
                             </p>
                         </div>
-                        <div className='about-game-section--shape'>
+                        <div className='about-game-section--shape' style={{ width: scroll > 30 ? `calc(70% - ${scroll * 1.4}%)` : '60%', borderRight: scroll > 30 ? undefined : 'none' }}>
                         </div>
                     </section>
                     :
@@ -36,10 +42,10 @@ export function Game() {
                         <div className='caractaristics-game-section--text-area'>
                             <h1>Características</h1>
                             <ul>
-                                {caseSelected.caracteristics.map((c,i)=>{return (<li key={i}>{c}</li>)})}
+                                {caseSelected.caracteristics.map((c, i) => { return (<li key={i}>{c}</li>) })}
                             </ul>
                         </div>
-                        <div className='caractaristics-game-section--shape'>
+                        <div className='caractaristics-game-section--shape' style={{ width: scroll > 65 ? `calc(70% - ${(scroll - 35) * 1.3}%)` : '60%', borderLeft: scroll > 65 ? undefined : 'none' }}>
                         </div>
                     </section>
                     :
