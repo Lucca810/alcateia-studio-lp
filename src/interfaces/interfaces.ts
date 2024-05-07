@@ -21,6 +21,10 @@ export interface IRoundedBlock{
     imgUrl: string
     goTo?: string
     styles?: React.CSSProperties
+    animated?: boolean
+    direction?: 'L' | 'R' | 'B'
+    startAnimation?: number
+    scroll?: number
 }
 
 export interface IWolfMember{
