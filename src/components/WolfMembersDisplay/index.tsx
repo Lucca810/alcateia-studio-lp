@@ -93,7 +93,7 @@ export function WolfMembersDisplay(props: IWolfMembersDisplay) {
                 <div className="wolf-member-area">
                 {wolfMembers.map((wolf) => {
                     return (
-                        <div className="wolf-member-mobile"
+                        <div className={`wolf-member-mobile ${selectedWolf?.name === wolf.name ? 'wolf-member-mobile-selected' : ''}`}
                             ref={cursor as any}
                             onClick={()=>{
                                 if(selectedWolf && selectedWolf.name === wolf.name){
