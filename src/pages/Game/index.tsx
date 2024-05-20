@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { cases } from '../../variables'
 import './index.css'
+import { useEffect } from 'react';
 
 interface IGame {
     scroll: number
@@ -12,6 +13,10 @@ export function Game(props: IGame) {
     const caseSelected = cases.filter((c) => { if (c.game === game.gameName) return c })[0]
 
     const { scroll } = props
+
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
 
     return (
         <div className='main'>

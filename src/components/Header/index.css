@@ -58,9 +58,27 @@
     z-index: 99;
 }
 
+.lp-head--mob-menu{
+    display: none;
+}
+
+.lp-head--mob-menu-button{
+    display: none;
+}
+
 @media only screen and (max-width: 500px) {
     .lp-head{
         padding: 20px 20px;
         width: calc(100% - 40px);
+    }
+}
+
+@media only screen and (max-width: 911px) {
+    .lp-head--labels{
+        display: none !important;
+    }
+
+    .lp-head--mob-menu-button{
+        display: block !important;
     }
 }
