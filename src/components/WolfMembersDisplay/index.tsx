@@ -68,40 +68,45 @@ export function WolfMembersDisplay(props: IWolfMembersDisplay) {
                         undefined
                 }
             </div>
-            <div className="wolf-member-description-mobile" style={{ height: selectedWolf ? '200px' : undefined, border: selectedWolf ? '3px solid' : undefined }}>
-                {selectedWolf?.name ? <p>Nome: {selectedWolf?.name}</p> : undefined}
-                {selectedWolf?.birthday ? <p>Aniversário: {selectedWolf?.birthday}</p> : undefined}
-                {selectedWolf?.role ? <p>Função: {selectedWolf?.role}</p> : undefined}
-                {selectedWolf?.description ? <p>Descrição: {selectedWolf?.description}</p> : undefined}
-                {selectedWolf?.favoriteGame ? <p>Jogo favorito: {selectedWolf?.favoriteGame}</p> : undefined}
-                {
-                    selectedWolf?.instagram || selectedWolf?.linkedIn ?
-                        <div className="wolf-member-description--social-media-area">
-                            {selectedWolf?.linkedIn ? <a href={selectedWolf.linkedIn}><img src="linkedin-icon.svg" alt="" /></a> : undefined}
-                            {selectedWolf?.instagram ? <a href={selectedWolf.instagram}><img src="instagram-icon.svg" alt="" /></a> : undefined}
-                        </div>
-                        :
-                        undefined
-                }
+
+            <div className="wolf-member-area-container">
+                <h1>Nossa Equipe</h1>
+                <div className="wolf-member-description-mobile" style={{ height: selectedWolf ? '200px' : undefined, border: selectedWolf ? '3px solid' : undefined }}>
+                    {selectedWolf?.name ? <p>Nome: {selectedWolf?.name}</p> : undefined}
+                    {selectedWolf?.birthday ? <p>Aniversário: {selectedWolf?.birthday}</p> : undefined}
+                    {selectedWolf?.role ? <p>Função: {selectedWolf?.role}</p> : undefined}
+                    {selectedWolf?.description ? <p>Descrição: {selectedWolf?.description}</p> : undefined}
+                    {selectedWolf?.favoriteGame ? <p>Jogo favorito: {selectedWolf?.favoriteGame}</p> : undefined}
+                    {
+                        selectedWolf?.instagram || selectedWolf?.linkedIn ?
+                            <div className="wolf-member-description--social-media-area">
+                                {selectedWolf?.linkedIn ? <a href={selectedWolf.linkedIn}><img src="linkedin-icon.svg" alt="" /></a> : undefined}
+                                {selectedWolf?.instagram ? <a href={selectedWolf.instagram}><img src="instagram-icon.svg" alt="" /></a> : undefined}
+                            </div>
+                            :
+                            undefined
+                    }
+                </div>
+                <div className="wolf-member-area">
+                    {wolfMembers.map((wolf) => {
+                        return (
+                            <div className={`wolf-member-mobile ${selectedWolf?.name === wolf.name ? 'wolf-member-mobile-selected' : ''}`}
+                                ref={cursor as any}
+                                onClick={() => {
+                                    if (selectedWolf && selectedWolf.name === wolf.name) {
+                                        setSelectedWolf(undefined)
+                                    } else {
+                                        setSelectedWolf(wolf)
+                                    }
+                                }}
+                            >
+                                <img src={wolf.picture} alt={wolf.name} />
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-            <div className="wolf-member-area">
-                {wolfMembers.map((wolf) => {
-                    return (
-                        <div className={`wolf-member-mobile ${selectedWolf?.name === wolf.name ? 'wolf-member-mobile-selected' : ''}`}
-                            ref={cursor as any}
-                            onClick={() => {
-                                if (selectedWolf && selectedWolf.name === wolf.name) {
-                                    setSelectedWolf(undefined)
-                                } else {
-                                    setSelectedWolf(wolf)
-                                }
-                            }}
-                        >
-                            <img src={wolf.picture} alt={wolf.name} />
-                        </div>
-                    )
-                })}
-            </div>
+
         </>
     )
 }
