@@ -31,7 +31,7 @@ export function Home(props: IHome) {
                     </p>
                 </div>
                 <div className='servicos-section--blocs-area'>
-                    {services.map((service, idx) => { return <RoundedBlock key={idx} imgUrl={service.imgUrl} title={service.title} animated={true} direction={size[0] > 911 ? 'B' : (idx % 2 === 0 ? 'L' : 'R')} startAnimation={size[0] > 911 ? 15 : 5} scroll={scroll} /> })}
+                    {services.map((service, idx) => { return <RoundedBlock key={idx} imgUrl={service.imgUrl} title={service.title} animated={true} direction={'B'} startAnimation={size[0] > 911 ? 15 : 5} scroll={scroll} /> })}
                 </div>
             </section>
             <section id="portifolio" className='portifolio-section' style={{ backgroundImage: "url('/Banner3.jpg')" }}>
@@ -42,7 +42,7 @@ export function Home(props: IHome) {
                     </p>
                 </div>
                 <div className='portifolio-section--blocs-area'>
-                    {cases.map((caseSel, idx) => { return <RoundedBlock key={idx} imgUrl={caseSel.imgUrl} title={caseSel.title} subheading={caseSel.subheading} goTo={caseSel.goTo} animated={true} direction={size[0] > 911 ? 'B' : (idx % 2 === 0 ? 'L' : 'R')} startAnimation={size[0] > 911 ? 40 : 35} scroll={scroll} /> })}
+                    {cases.map((caseSel, idx) => { return <RoundedBlock key={idx} imgUrl={caseSel.imgUrl} title={caseSel.title} subheading={caseSel.subheading} goTo={caseSel.goTo} animated={true} direction={'B'}  startAnimation={size[0] > 911 ? 40 : 35} scroll={scroll} /> })}
                 </div>
             </section>
             <section id="contato" className='contato-section' style={{ backgroundImage: "url('/Banner4.jpg')" }}>
