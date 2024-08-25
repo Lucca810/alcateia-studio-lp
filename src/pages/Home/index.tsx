@@ -2,6 +2,7 @@ import { RoundedBlock } from '../../components/RoundedBlock'
 import './index.css'
 import { cases, services } from '../../variables'
 import { WolfMembersDisplay } from '../../components/WolfMembersDisplay'
+import emailjs from 'emailjs-com';
 
 interface IHome {
     size: number[]
@@ -11,6 +12,32 @@ interface IHome {
 
 export function Home(props: IHome) {
     const { size, mouseCordinates, scroll } = props
+
+    function sendEmail(e: any) {
+        e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
+        console.log(e)
+        const nome = (document.getElementById('name') as HTMLInputElement)?.value
+        const email = (document.getElementById('email') as HTMLInputElement)?.value
+        const mensagem = (document.getElementById('mesage') as HTMLInputElement)?.value
+
+        if(!nome || !email || !mensagem){
+            alert('Preencha todos os campos, por favor!')
+            return;
+        }
+
+        emailjs.send("service_cm4n1kj","template_jh0app2",{
+            from_name:  nome,
+            from_email: email,
+            message: mensagem,
+            },'W0J88QrLQazn1AGW-')
+          .then((result) => {
+              //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+              alert('Formulário enviado!')
+              console.log(result)
+          }, (error) => {
+              console.log(error.text);
+          });
+      }
 
     return (
         <div className='main'>
@@ -54,11 +81,11 @@ export function Home(props: IHome) {
                     </p>
                 </div>
 
-                <form action="" className='contato-section--form'>
+                <form action="" className='contato-section--form' onSubmit={sendEmail}>
                     <input type="text" id='name' className='contato-section--form-name' placeholder='Nome' />
                     <input type="text" id='email' className='contato-section--form-email' placeholder='E-Mail' />
-                    <textarea className='contato-section--form-message' id='message' cols={30} rows={15} placeholder='Menssagem'></textarea>
-                    <button className='contato-section--form-submit-button' onClick={() => { alert('Formulário enviado!') }}>Enviar</button>
+                    <textarea className='contato-section--form-message' id='mesage' cols={30} rows={15} placeholder='Menssagem'></textarea>
+                    <button className='contato-section--form-submit-button' type='submit'>Enviar</button>
                 </form>
             </section>
         </div>
